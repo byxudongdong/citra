@@ -77,6 +77,11 @@ struct Values {
     // CheckNew3DS
     bool is_new_3ds;
 
+    // Control Panel
+    bool p_adapter_connected;
+    bool p_battery_charging;
+    u32 p_battery_level;
+
     // Controls
     std::array<std::string, NativeButton::NumButtons> buttons;
     std::array<std::string, NativeAnalog::NumAnalogs> analogs;
@@ -141,11 +146,6 @@ struct Values {
     std::string verify_endpoint_url;
     std::string citra_username;
     std::string citra_token;
-
-    // Control Panel
-    bool p_adapter_connected;
-    bool p_battery_charging;
-    u32 p_battery_level;
 } extern values;
 
 // a special value for Values::region_value indicating that citra will automatically select a region
