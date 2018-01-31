@@ -73,10 +73,8 @@ static const std::array<const char*, NumAnalogs> mapping = {{
 }};
 } // namespace NativeAnalog
 
-struct PTMInfo {
-    bool adapter_connected = true;
-    bool battery_charging = true;
-    u32 battery_level = 5;
+struct CpSettings {
+
 };
 
 struct Values {
@@ -149,7 +147,9 @@ struct Values {
     std::string citra_token;
 
     // Control Panel
-    PTMInfo ptm_values;
+    bool p_adapter_connected;
+    bool p_battery_charging;
+    u32 p_battery_level;
 } extern values;
 
 // a special value for Values::region_value indicating that citra will automatically select a region

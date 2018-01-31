@@ -29,7 +29,7 @@ void Module::Interface::GetAdapterState(Kernel::HLERequestContext& ctx) {
 
     IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
     rb.Push(RESULT_SUCCESS);
-    rb.Push(Settings::values.ptm_values.adapter_connected);
+    rb.Push(Settings::values.p_adapter_connected);
 }
 
 void Module::Interface::GetShellState(Kernel::HLERequestContext& ctx) {
@@ -45,7 +45,7 @@ void Module::Interface::GetBatteryLevel(Kernel::HLERequestContext& ctx) {
 
     IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
     rb.Push(RESULT_SUCCESS);
-    rb.Push(Settings::values.ptm_values.battery_level);
+    rb.Push(Settings::values.p_battery_level);
 }
 
 void Module::Interface::GetBatteryChargeState(Kernel::HLERequestContext& ctx) {
@@ -53,7 +53,7 @@ void Module::Interface::GetBatteryChargeState(Kernel::HLERequestContext& ctx) {
 
     IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
     rb.Push(RESULT_SUCCESS);
-    rb.Push(Settings::values.ptm_values.battery_charging);
+    rb.Push(Settings::values.p_battery_charging);
 }
 
 void Module::Interface::GetPedometerState(Kernel::HLERequestContext& ctx) {

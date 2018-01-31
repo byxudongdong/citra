@@ -195,5 +195,15 @@ verify_endpoint_url = https://services.citra-emu.org/api/profile
 # See https://services.citra-emu.org/ for more info
 citra_username =
 citra_token =
+
+[ControlPanel]
+# Power - Adapter connected
+p_adapter_connected =
+
+# Power - Battery charging
+p_battery_charging =
+
+# Power - Battery level
+p_battery_level =
 )";
 }
