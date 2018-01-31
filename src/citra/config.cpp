@@ -82,6 +82,12 @@ void Config::ReadValues() {
     Settings::values.touch_device =
         sdl2_config->Get("Controls", "touch_device", "engine:emu_window");
 
+    // Control Panel
+    Settings::values.p_adapter_connected = sdl2_config->GetBoolean("ControlPanel", "p_adapter_connected", true);
+    Settings::values.p_battery_charging = sdl2_config->GetBoolean("ControlPanel", "p_battery_charging", true);
+    Settings::values.p_battery_level =
+            static_cast<u32>(sdl2_config->GetInteger("ControlPanel", "p_battery_level", 5));
+
     // Core
     Settings::values.use_cpu_jit = sdl2_config->GetBoolean("Core", "use_cpu_jit", true);
 
@@ -168,12 +174,6 @@ void Config::ReadValues() {
         "WebService", "verify_endpoint_url", "https://services.citra-emu.org/api/profile");
     Settings::values.citra_username = sdl2_config->Get("WebService", "citra_username", "");
     Settings::values.citra_token = sdl2_config->Get("WebService", "citra_token", "");
-
-    // Control Panel
-    Settings::values.p_adapter_connected = sdl2_config->GetBoolean("ControlPanel", "p_adapter_connected", true);
-    Settings::values.p_battery_charging = sdl2_config->GetBoolean("ControlPanel", "p_battery_charging", true);
-    Settings::values.p_battery_level =
-            static_cast<u32>(sdl2_config->GetInteger("ControlPanel", "p_battery_level", 5));
 }
 
 void Config::Reload() {
