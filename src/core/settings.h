@@ -73,10 +73,6 @@ static const std::array<const char*, NumAnalogs> mapping = {{
 }};
 } // namespace NativeAnalog
 
-struct CpSettings {
-
-};
-
 struct Values {
     // CheckNew3DS
     bool is_new_3ds;
