@@ -17,6 +17,7 @@
 #include <QtWidgets>
 #include "citra_qt/aboutdialog.h"
 #include "citra_qt/bootmanager.h"
+#include "citra_qt/control_panel.h"
 #include "citra_qt/compatdb.h"
 #include "citra_qt/configuration/config.h"
 #include "citra_qt/configuration/configure_dialog.h"
@@ -387,6 +388,7 @@ void GMainWindow::ConnectMenuEvents() {
     connect(ui.action_Report_Compatibility, &QAction::triggered, this,
             &GMainWindow::OnMenuReportCompatibility);
     connect(ui.action_Configure, &QAction::triggered, this, &GMainWindow::OnConfigure);
+    connect(ui.action_Control_Panel, &QAction::triggered, this, &GMainWindow::OnControlPanel);
 
     // View
     connect(ui.action_Single_Window_Mode, &QAction::triggered, this,
@@ -935,6 +937,11 @@ void GMainWindow::OnToggleFilterBar() {
 void GMainWindow::OnSwapScreens() {
     Settings::values.swap_screen = !Settings::values.swap_screen;
     Settings::Apply();
+}
+
+void GMainWindow::OnControlPanel() {
+    ControlPanel control_panel;
+    control_panel.exec();
 }
 
 void GMainWindow::OnCreateGraphicsSurfaceViewer() {
