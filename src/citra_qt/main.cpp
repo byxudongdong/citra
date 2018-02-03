@@ -1030,11 +1030,6 @@ void GMainWindow::OnToggleFilterBar() {
     }
 }
 
-void GMainWindow::OnSwapScreens() {
-    Settings::values.swap_screen = !Settings::values.swap_screen;
-    Settings::Apply();
-}
-
 void GMainWindow::OnControlPanel() {
     ControlPanel control_panel;
     control_panel.exec();
