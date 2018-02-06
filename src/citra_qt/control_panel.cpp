@@ -4,7 +4,9 @@
 
 #include <QCheckBox>
 #include <QComboBox>
+
 #include "core/settings.h"
+#include "core/hle/shared_page.h"
 #include "control_panel.h"
 #include "ui_control_panel.h"
 
@@ -20,6 +22,7 @@ ControlPanel::ControlPanel(QWidget *parent) :
     connect(ui->battery_charging, &QCheckBox::stateChanged, this, &ControlPanel::OnBatteryChargingChanged);
     connect(ui->battery_level, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ControlPanel::OnBatteryLevelChanged);
     setWindowTitle("Control Panel");
+    setFixedSize(size());
 }
 
 ControlPanel::~ControlPanel() {
@@ -28,12 +31,18 @@ ControlPanel::~ControlPanel() {
 
 void ControlPanel::OnAdapterConnectedChanged() {
     Settings::values.p_adapter_connected = ui->adapter_connected->isChecked();
+    SharedPage::shared_page.battery_state.is_adapter_connected.Assign(
+                static_cast<u8>(Settings::values.p_adapter_connected));
 }
 
 void ControlPanel::OnBatteryChargingChanged() {
     Settings::values.p_battery_charging = ui->battery_charging->isChecked();
+    SharedPage::shared_page.battery_state.is_charging.Assign(
+                static_cast<u8>(Settings::values.p_battery_charging));
 }
 
 void ControlPanel::OnBatteryLevelChanged() {
     Settings::values.p_battery_level = ui->battery_level->currentIndex() + 1;
+    SharedPage::shared_page.battery_state.charge_level.Assign(
+                static_cast<u8>(Settings::values.p_battery_level));
 }
