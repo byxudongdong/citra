@@ -1033,7 +1033,7 @@ void GMainWindow::OnToggleFilterBar() {
 void GMainWindow::OnControlPanel() {
     if (controlPanel == nullptr)
         controlPanel = std::make_shared<ControlPanel>(this);
-    controlPanel.show();
+    controlPanel->show();
 }
 
 void GMainWindow::OnCreateGraphicsSurfaceViewer() {
