@@ -14,6 +14,7 @@
 
 class AboutDialog;
 class Config;
+class ControlPanel;
 class EmuThread;
 class GameList;
 enum class GameListOpenTarget;
@@ -196,6 +197,8 @@ private:
     GraphicsTracingWidget* graphicsTracingWidget;
     WaitTreeWidget* waitTreeWidget;
     Updater* updater;
+
+    std::shared_ptr<ControlPanel> controlPanel;
 
     bool explicit_update_check = false;
     bool defer_update_prompt = false;
